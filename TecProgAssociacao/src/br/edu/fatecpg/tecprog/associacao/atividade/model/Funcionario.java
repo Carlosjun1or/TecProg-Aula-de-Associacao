@@ -4,11 +4,20 @@ public class Funcionario {
 	private String nome;
 	private String cargo;
 	private String setor;
+	private double salario;
 
-	public Funcionario(String nome, String cargo, String setor) {
+	public Funcionario(String nome, String cargo, double salario) {
+		this.nome = nome;
+		this.cargo = cargo;
+		this.setor = "Geral";
+		this.salario = salario;
+	}
+
+	public Funcionario(String nome, String cargo, String setor, double salario) {
 		this.nome = nome;
 		this.cargo = cargo;
 		this.setor = setor;
+		this.salario = salario;
 	}
 
 	public String getNome() {
@@ -35,9 +44,16 @@ public class Funcionario {
 		this.setor = setor;
 	}
 
-	@Override
-	public String toString() {
-		return "Funcionario [nome=" + nome + ", cargo=" + cargo + ", setor=" + setor + "]";
+	public double getSalario() {
+		return salario;
 	}
 
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+	@Override
+	public String toString() {
+		return "Funcionario [nome=" + nome + ", cargo=" + cargo + ", setor=" + setor + ", salario=R$ " + salario + "]";
+	}
 }
