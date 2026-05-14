@@ -4,8 +4,8 @@ public class Empresa {
 	private String nome;
 	private String ramo;
 	private String horarioAtendimento;
-	private Cliente cliente;
-	private Funcionario funcionario;
+	private Cliente[] cliente;
+	private Funcionario[] funcionario;
 
 	public Empresa(String nome, String ramo, String horarioAtendimento) {
 		this.nome = nome;
@@ -37,20 +37,29 @@ public class Empresa {
 		this.horarioAtendimento = horarioAtendimento;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public void registrarCliente(int i, Cliente cliente) {
+		this.cliente[i] = cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public Cliente buscarCliente(int i) {
+		return this.cliente[i];
 	}
 
-	public Funcionario getFuncionario() {
-		return this.funcionario;
+	public void registrarFuncionario(int i, Funcionario funcionario) {
+		this.funcionario[i] = funcionario;
 	}
 
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
+	public Funcionario buscarFuncionario(int i) {
+		return this.funcionario[1];
+	}
+
+	public String apresentarClientes() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < 10; i++) {
+			sb.append(this.cliente[i] != null ? this.cliente[i].toString() : "-");
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
 
 	@Override
